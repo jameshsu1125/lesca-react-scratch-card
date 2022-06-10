@@ -1,14 +1,23 @@
-import { Button, ButtonGroup } from '@mui/material';
 import { useEffect } from 'react';
+import ScratchCard from '../../lib/';
+import CoverImage from './img/cover.jpg';
 
 const Demo = () => {
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log(CoverImage);
+  }, []);
   return (
     <div className='Demo'>
       <h2>Demo</h2>
-      <ButtonGroup variant='contained'>
-        <Button>click</Button>
-      </ButtonGroup>
+
+      <ScratchCard
+        cover={CoverImage}
+        onComplete={() => {
+          alert('done');
+        }}
+      >
+        <div className='content' />
+      </ScratchCard>
     </div>
   );
 };

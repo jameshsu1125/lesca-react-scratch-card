@@ -1,4 +1,4 @@
 module.exports = {
-  name: 'lesca-',
-  description: '',
+  name: 'lesca-react-scratch-card',
+  description: 'scratch card component',
 };

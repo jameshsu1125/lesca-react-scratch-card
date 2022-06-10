@@ -3,7 +3,28 @@ import { useEffect } from 'react';
 import Code from '../components/code';
 import { name } from '../config';
 
-const codes = [{ title: '1. Installation', code: `npm install ${name} --save`, type: 'text' }];
+const codes = [
+  {
+    title: '1. Installation',
+    code: `npm install ${name} --save`,
+    type: 'text',
+  },
+  {
+    title: '1. Usage',
+    code: `import ScratchCard from '${name}';
+
+<ScratchCard
+  cover={CoverImage}
+  onComplete={() => {
+    alert('done');
+  }}
+  >
+    <div className='content' />
+</ScratchCard>
+`,
+    type: 'js',
+  },
+];
 
 const Usage = () => {
   useEffect(() => {}, []);

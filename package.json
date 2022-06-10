@@ -1,7 +1,7 @@
 {
-  "name": "npm-base-package",
-  "version": "0.0.1",
-  "description": "npm-base-package",
+  "name": "lesca-react-scratch-card",
+  "version": "1.0.0",
+  "description": "scratch card component",
   "main": "lib/index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development",
@@ -16,7 +16,9 @@
   "keywords": [
     "lesca",
     "衝康吉",
-    "jameshsu1125"
+    "jameshsu1125",
+    "scratch-off",
+    "luck draw"
   ],
   "license": "MIT",
   "devDependencies": {
@@ -55,10 +57,5 @@
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.2"
   },
-  "author": "jamehsu1125 <jameshsu1125@gmail.com>",
-  "homepage": "https://github.com/jameshsu1125/npm-base-package",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:jameshsu1125/npm-base-package.git"
-  }
+  "author": "jamehsu1125 <jameshsu1125@gmail.com>"
 }

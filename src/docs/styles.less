@@ -10,3 +10,11 @@ body {
 
   overscroll-behavior: none;
 }
+
+.content {
+  width: image-width(@img);
+  height: image-height(@img);
+  background-image: url(@img);
+
+  @img: './pages/img/linePoint50.jpg';
+}
