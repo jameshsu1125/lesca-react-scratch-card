@@ -54,6 +54,8 @@ const component = () => {
 | Props                     |           description            | default |
 | :------------------------ | :------------------------------: | ------: |
 | **cover**:_string_        |     scratch card cover image     |         |
+| **width**:_number_        |            card width            |     320 |
+| **height**:_number_       |           card height            |     240 |
 | **percent**:_number_      | how much percent to complete it? |      50 |
 | **onComplete**:_function_ |      callback when complete      |         |
 

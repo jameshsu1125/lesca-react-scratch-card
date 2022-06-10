@@ -118,6 +118,8 @@ const ScratchCard = ({ cover, percent, onComplete, width, height, children }: Sc
 
 ScratchCard.defaultProps = {
   percent: 50,
+  width: 320,
+  height: 240,
 };
 
 export default ScratchCard;

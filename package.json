@@ -1,6 +1,6 @@
 {
   "name": "lesca-react-scratch-card",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "scratch card component",
   "main": "lib/index.js",
   "scripts": {
