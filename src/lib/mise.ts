@@ -15,8 +15,10 @@ export const getMouse = (event: MouseEvent | TouchEvent, canvas: HTMLCanvasEleme
 
   if (canvas.offsetParent !== undefined) {
     if (canvas.offsetParent instanceof HTMLElement) {
-      offset.x += canvas.offsetParent?.offsetLeft;
-      offset.y += canvas.offsetParent?.offsetTop;
+      do {
+        offset.x += canvas.offsetLeft;
+        offset.y += canvas.offsetTop;
+      } while (((canvas as HTMLElement) = canvas.offsetParent));
     }
   }
 
