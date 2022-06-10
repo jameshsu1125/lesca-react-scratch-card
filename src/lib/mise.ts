@@ -3,10 +3,15 @@ type Point = {
   y: number;
 };
 
-export const drawImage = (canvas: HTMLCanvasElement, image: HTMLImageElement) => {
+export const drawImage = (
+  canvas: HTMLCanvasElement,
+  image: HTMLImageElement,
+  width: number,
+  height: number,
+) => {
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
-  ctx.drawImage(image, 0, 0);
+  ctx.drawImage(image, 0, 0, width, height);
 };
 
 export const getMouse = (event: MouseEvent | TouchEvent, canvas: HTMLCanvasElement) => {

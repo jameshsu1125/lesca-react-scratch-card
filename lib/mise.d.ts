@@ -2,7 +2,7 @@ declare type Point = {
     x: number;
     y: number;
 };
-export declare const drawImage: (canvas: HTMLCanvasElement, image: HTMLImageElement) => void;
+export declare const drawImage: (canvas: HTMLCanvasElement, image: HTMLImageElement, width: number, height: number) => void;
 export declare const getMouse: (event: MouseEvent | TouchEvent, canvas: HTMLCanvasElement) => {
     x: number;
     y: number;
