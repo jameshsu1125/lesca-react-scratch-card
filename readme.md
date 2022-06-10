@@ -35,6 +35,8 @@ const component = () => {
     <ScratchCard
       cover={Image}
       percent={50}
+      width={100}
+      height={100}
       onComplete={() => {
         // ...script
       }}
