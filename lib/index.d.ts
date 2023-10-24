@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-declare type ScratchProps = {
+type ScratchProps = {
     cover: string;
     percent: number;
     width: number;
@@ -8,9 +8,11 @@ declare type ScratchProps = {
     onComplete?: Function;
 };
 declare const ScratchCard: {
-    ({ cover, percent, onComplete, width, height, children }: ScratchProps): JSX.Element;
+    ({ cover, percent, onComplete, width, height, children }: ScratchProps): import("react/jsx-runtime").JSX.Element;
     defaultProps: {
         percent: number;
+        width: number;
+        height: number;
     };
 };
 export default ScratchCard;

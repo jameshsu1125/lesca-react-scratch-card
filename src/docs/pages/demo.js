@@ -11,8 +11,8 @@ const Demo = () => {
       <h2>Demo</h2>
 
       <ScratchCard
-        width={322}
-        height={190}
+        width={645}
+        height={380}
         cover={CoverImage}
         onComplete={() => {
           alert('done');

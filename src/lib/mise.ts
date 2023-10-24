@@ -57,13 +57,13 @@ export const getFilledInPixels = (
   if (!ctx) return;
 
   var pixels = ctx.getImageData(0, 0, width, height),
-    pdata = pixels.data,
-    l = pdata.length,
+    data = pixels.data,
+    l = data.length,
     total = l / stride,
     count = 0;
 
   for (var i = (count = 0); i < l; i += stride) {
-    if (parseInt(String(pdata[i])) === 0) {
+    if (parseInt(String(data[i])) === 0) {
       count++;
     }
   }
