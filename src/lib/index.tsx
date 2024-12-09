@@ -72,6 +72,7 @@ const ScratchCard = ({ cover, percent, onComplete, width, height, children }: Sc
         ctx.drawImage(brush, px, py);
       }
     });
+    ctx?.clearRect(0, 0, 200, 200);
 
     lastPoint.current = currentPoint;
     const p = getFilledInPixels(32, canvas, canvas.width, canvas.height);
