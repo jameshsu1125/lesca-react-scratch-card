@@ -1,8 +1,8 @@
 {
-  "name": "template-vite-react-npm",
+  "name": "lesca-react-scratch-card",
   "private": false,
-  "description": "xxxxx",
-  "version": "0.0.0",
+  "description": "scratch card component for react",
+  "version": "2.0.0",
   "type": "module",
   "keywords": [
     "lesca"
