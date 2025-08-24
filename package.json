@@ -1,64 +1,50 @@
 {
-  "name": "lesca-react-scratch-card",
-  "version": "1.0.4",
-  "description": "scratch card component",
-  "main": "lib/index.js",
-  "scripts": {
-    "start": "webpack-dev-server --mode development",
-    "watch": "babel --watch src/lib --out-dir lib --extensions '.ts,.tsx'",
-    "build": "NODE_ENV=production webpack",
-    "deploy": "gh-pages -d dist",
-    "tsc": "npx tsc --watch",
-    "dev": "concurrently \"npm run watch\" \"npm run tsc\" \"npm run start\"",
-    "rm": "rm -rf node_modules/ package-lock.json",
-    "op": "babel src/lib -d lib --copy-files"
-  },
+  "name": "template-vite-react-npm",
+  "private": false,
+  "description": "xxxxx",
+  "version": "0.0.0",
+  "type": "module",
   "keywords": [
-    "lesca",
-    "衝康吉",
-    "jameshsu1125",
-    "scratch-off",
-    "luck draw"
+    "lesca"
   ],
-  "license": "MIT",
-  "devDependencies": {
-    "@babel/cli": "^7.26.4",
-    "@babel/core": "^7.26.0",
-    "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
-    "@babel/plugin-transform-runtime": "^7.25.9",
-    "@babel/preset-env": "^7.26.0",
-    "@babel/preset-react": "^7.26.3",
-    "@babel/preset-typescript": "^7.26.0",
-    "@emotion/react": "^11.13.5",
-    "@emotion/styled": "^11.13.5",
-    "@mui/icons-material": "^6.1.10",
-    "@mui/material": "^6.1.10",
-    "autoprefixer": "^10.4.20",
-    "babel-loader": "^9.2.1",
-    "concurrently": "^9.1.0",
-    "css-loader": "^7.1.2",
-    "file-loader": "^6.2.0",
-    "gh-pages": "^6.2.0",
-    "html-react-parser": "^5.2.0",
-    "html-webpack-plugin": "^5.6.3",
-    "less": "^4.2.1",
-    "less-loader": "^12.2.0",
-    "less-vars-to-js": "^1.3.0",
-    "postcss": "^8.4.49",
-    "postcss-loader": "^8.1.1",
-    "prismjs": "^1.29.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "style-loader": "^4.0.0",
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.7.2",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.1.0"
+  "files": [
+    "lib"
+  ],
+  "main": "./lib/index.cjs",
+  "module": "./lib/index.js",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js"
+    }
   },
-  "author": "jamehsu1125 <jameshsu1125@gmail.com>",
+  "scripts": {
+    "dev": "NODE_ENV=DEV vite --host",
+    "build": "NODE_ENV=production tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "rm": "rm -rf node_modules/ dist/ package-lock.json"
+  },
   "dependencies": {
-    "@babel/runtime": "^7.26.0"
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.34.0",
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.1.11",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.1",
+    "eslint": "^9.34.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "path": "^0.12.7",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.40.0",
+    "vite": "^7.1.3",
+    "vite-plugin-css-injected-by-js": "^3.5.2",
+    "vite-plugin-dts": "^4.5.4"
   }
 }
