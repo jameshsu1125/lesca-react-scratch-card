@@ -37,6 +37,7 @@ const component = () => {
       percent={50}
       width={100}
       height={100}
+      brushSize={{ width: 50, height: 50 }}
       onComplete={() => {
         // ...script
       }}
@@ -51,13 +52,14 @@ const component = () => {
 
 ### Props
 
-| Props                     |           description            | default |
-| :------------------------ | :------------------------------: | ------: |
-| **cover**:_string_        |     scratch card cover image     |         |
-| **width**:_number_        |            card width            |     320 |
-| **height**:_number_       |           card height            |     240 |
-| **percent**:_number_      | how much percent to complete it? |      50 |
-| **onComplete**:_function_ |      callback when complete      |         |
+| Props                     |           description            |               default |
+| :------------------------ | :------------------------------: | --------------------: |
+| **cover**:_string_        |     scratch card cover image     |                       |
+| **width**:_number_        |            card width            |                   320 |
+| **height**:_number_       |           card height            |                   240 |
+| **percent**:_number_      | how much percent to complete it? |                    50 |
+| **onComplete**:_function_ |      callback when complete      |                       |
+| **brushSize**:_Object_    |            brush size            | {width:50, height:50} |
 
 ### Features
 

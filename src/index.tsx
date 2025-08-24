@@ -8,6 +8,7 @@ type ScratchProps = {
   height?: number;
   children: ReactNode;
   onComplete?: Function;
+  brushSize?: { width: number; height: number };
 };
 
 const brush = new Image();
@@ -21,6 +22,7 @@ const ScratchCard = ({
   percent = 50,
   width = 320,
   height = 240,
+  brushSize = { width: 50, height: 50 },
 }: ScratchProps) => {
   const ref = useRef<HTMLCanvasElement>(document.createElement('canvas'));
 
@@ -32,7 +34,7 @@ const ScratchCard = ({
   const isDrawing = useRef(false);
   const lastPoint = useRef({ x: 0, y: 0 });
 
-  const destory = (canvas: HTMLCanvasElement) => {
+  const destroy = (canvas: HTMLCanvasElement) => {
     isDrawing.current = false;
     canvas.removeEventListener('mousedown', handleMouseDown);
     canvas.removeEventListener('mousemove', handleMouseMove);
@@ -71,12 +73,12 @@ const ScratchCard = ({
 
     Array.from(Array(Math.floor(dist)).keys()).forEach((i) => {
       const { x, y } = lastPoint.current;
-      const px = x + Math.sin(angle) * i - 25;
-      const py = y + Math.cos(angle) * i - 25;
+      const px = x + Math.sin(angle) * i - brushSize.width / 2;
+      const py = y + Math.cos(angle) * i - brushSize.height / 2;
 
       if (ctx) {
         ctx.globalCompositeOperation = 'destination-out';
-        ctx.drawImage(brush, px, py);
+        ctx.drawImage(brush, px, py, brushSize.width, brushSize.height);
       }
     });
 
@@ -85,7 +87,7 @@ const ScratchCard = ({
     if (p && p >= percent) {
       setCanvasVisible(false);
       onComplete?.();
-      destory(canvas);
+      destroy(canvas);
     }
   };
 
