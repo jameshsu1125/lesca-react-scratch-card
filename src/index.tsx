@@ -67,7 +67,6 @@ const ScratchCard = ({
     const dist = distanceBetween(lastPoint.current, currentPoint);
     const angle = angleBetween(lastPoint.current, currentPoint);
 
-    // console.log(dist, angle, currentPoint);
     const canvas = ref.current;
     const ctx = canvas.getContext('2d');
 
