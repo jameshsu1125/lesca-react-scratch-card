@@ -9,7 +9,7 @@ export const drawImage = (
   width: number,
   height: number,
 ) => {
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
   if (!ctx) return;
   ctx.drawImage(image, 0, 0, width, height);
 };
@@ -53,7 +53,7 @@ export const getFilledInPixels = (
   height: number,
 ) => {
   if (!stride || stride < 1) stride = 1;
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
   if (!ctx) return;
 
   var pixels = ctx.getImageData(0, 0, width, height),

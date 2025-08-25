@@ -68,7 +68,7 @@ const ScratchCard = ({
     const angle = angleBetween(lastPoint.current, currentPoint);
 
     const canvas = ref.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
 
     Array.from(Array(Math.floor(dist)).keys()).forEach((i) => {
       const { x, y } = lastPoint.current;
