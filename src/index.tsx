@@ -27,6 +27,7 @@ const ScratchCard = ({
   offset = { x: 0, y: 0 },
 }: ScratchProps) => {
   const ref = useRef<HTMLCanvasElement>(document.createElement('canvas'));
+  const offsetRef = useRef(offset);
 
   // Basic HTMLElement
   const [canvasVisible, setCanvasVisible] = useState(false);
@@ -47,6 +48,10 @@ const ScratchCard = ({
   };
 
   useEffect(() => {
+    offsetRef.current = offset;
+  }, [offset]);
+
+  useEffect(() => {
     const image = new Image();
     image.onload = () => {
       setDisplay('block');
@@ -59,7 +64,7 @@ const ScratchCard = ({
   const handleMouseDown = (event: MouseEvent | TouchEvent) => {
     isDrawing.current = true;
     const points = getMouse(event, ref.current);
-    lastPoint.current = { x: points.x + offset.x, y: points.y + offset.y };
+    lastPoint.current = { x: points.x + offsetRef.current.x, y: points.y + offsetRef.current.y };
   };
 
   const handleMouseMove = (event: MouseEvent | TouchEvent) => {
@@ -67,7 +72,7 @@ const ScratchCard = ({
 
     event.preventDefault?.();
     const points = getMouse(event, ref.current);
-    const currentPoint = { x: points.x + offset.x, y: points.y + offset.y };
+    const currentPoint = { x: points.x + offsetRef.current.x, y: points.y + offsetRef.current.y };
     const dist = distanceBetween(lastPoint.current, currentPoint);
     const angle = angleBetween(lastPoint.current, currentPoint);
 
