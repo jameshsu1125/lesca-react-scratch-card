@@ -10,6 +10,10 @@ type ScratchProps = {
         width: number;
         height: number;
     };
+    offset?: {
+        x: number;
+        y: number;
+    };
 };
-declare const ScratchCard: ({ children, cover, onComplete, percent, width, height, brushSize, }: ScratchProps) => import("react/jsx-runtime").JSX.Element;
+declare const ScratchCard: ({ children, cover, onComplete, percent, width, height, brushSize, offset, }: ScratchProps) => import("react/jsx-runtime").JSX.Element;
 export default ScratchCard;

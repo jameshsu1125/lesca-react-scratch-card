@@ -9,6 +9,7 @@ type ScratchProps = {
   children: ReactNode;
   onComplete?: Function;
   brushSize?: { width: number; height: number };
+  offset?: { x: number; y: number };
 };
 
 const brush = new Image();
@@ -23,6 +24,7 @@ const ScratchCard = ({
   width = 320,
   height = 240,
   brushSize = { width: 50, height: 50 },
+  offset = { x: 0, y: 0 },
 }: ScratchProps) => {
   const ref = useRef<HTMLCanvasElement>(document.createElement('canvas'));
 
@@ -56,14 +58,16 @@ const ScratchCard = ({
 
   const handleMouseDown = (event: MouseEvent | TouchEvent) => {
     isDrawing.current = true;
-    lastPoint.current = getMouse(event, ref.current);
+    const points = getMouse(event, ref.current);
+    lastPoint.current = { x: points.x + offset.x, y: points.y + offset.y };
   };
 
   const handleMouseMove = (event: MouseEvent | TouchEvent) => {
     if (!isDrawing.current) return;
 
     event.preventDefault?.();
-    const currentPoint = getMouse(event, ref.current);
+    const points = getMouse(event, ref.current);
+    const currentPoint = { x: points.x + offset.x, y: points.y + offset.y };
     const dist = distanceBetween(lastPoint.current, currentPoint);
     const angle = angleBetween(lastPoint.current, currentPoint);
 
