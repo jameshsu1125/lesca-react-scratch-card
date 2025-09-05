@@ -2,7 +2,7 @@
   "name": "lesca-react-scratch-card",
   "private": false,
   "description": "scratch card component for react",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "type": "module",
   "keywords": [
     "lesca"

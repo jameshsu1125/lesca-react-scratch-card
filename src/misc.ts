@@ -17,7 +17,6 @@ export const drawImage = (
 export const getMouse = (event: PointerEvent, canvas: HTMLCanvasElement) => {
   const result = { x: 0, y: 0 };
   const offset = { x: 0, y: 0 };
-  console.log(event);
 
   if (canvas.offsetParent !== undefined) {
     if (canvas.offsetParent instanceof HTMLElement) {

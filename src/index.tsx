@@ -59,8 +59,6 @@ const ScratchCard = ({
   }, []);
 
   const handleMouseDown = (event: PointerEvent) => {
-    console.log('a');
-
     isDrawing.current = true;
     const points = getMouse(event, ref.current);
     lastPoint.current = { x: points.x + offsetRef.current.x, y: points.y + offsetRef.current.y };
