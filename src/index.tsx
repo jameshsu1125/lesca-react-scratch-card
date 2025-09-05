@@ -1,5 +1,5 @@
-import { ReactNode, useEffect, useState, useRef } from 'react';
-import { drawImage, getMouse, distanceBetween, angleBetween, getFilledInPixels } from './misc';
+import { ReactNode, useEffect, useRef, useState } from 'react';
+import { angleBetween, distanceBetween, drawImage, getFilledInPixels, getMouse } from './misc';
 
 type ScratchProps = {
   cover: string;
@@ -39,12 +39,9 @@ const ScratchCard = ({
 
   const destroy = (canvas: HTMLCanvasElement) => {
     isDrawing.current = false;
-    canvas.removeEventListener('mousedown', handleMouseDown);
-    canvas.removeEventListener('mousemove', handleMouseMove);
-    canvas.removeEventListener('mouseup', handleMouseUp);
-    canvas.removeEventListener('touchstart', handleMouseDown);
-    canvas.removeEventListener('touchmove', handleMouseMove);
-    canvas.removeEventListener('touchend', handleMouseUp);
+    canvas.removeEventListener('pointerdown', handleMouseDown);
+    canvas.removeEventListener('pointermove', handleMouseMove);
+    canvas.removeEventListener('pointerup', handleMouseUp);
   };
 
   useEffect(() => {
@@ -61,13 +58,15 @@ const ScratchCard = ({
     image.src = cover;
   }, []);
 
-  const handleMouseDown = (event: MouseEvent | TouchEvent) => {
+  const handleMouseDown = (event: PointerEvent) => {
+    console.log('a');
+
     isDrawing.current = true;
     const points = getMouse(event, ref.current);
     lastPoint.current = { x: points.x + offsetRef.current.x, y: points.y + offsetRef.current.y };
   };
 
-  const handleMouseMove = (event: MouseEvent | TouchEvent) => {
+  const handleMouseMove = (event: PointerEvent) => {
     if (!isDrawing.current) return;
 
     event.preventDefault?.();
@@ -108,12 +107,9 @@ const ScratchCard = ({
       const canvas = ref.current;
       if (canvas) {
         drawImage(canvas, image, width, height);
-        canvas.addEventListener('mousedown', handleMouseDown, false);
-        canvas.addEventListener('mousemove', handleMouseMove, false);
-        canvas.addEventListener('mouseup', handleMouseUp, false);
-        canvas.addEventListener('touchstart', handleMouseDown, false);
-        canvas.addEventListener('touchmove', handleMouseMove, false);
-        canvas.addEventListener('touchend', handleMouseUp, false);
+        canvas.addEventListener('pointerdown', handleMouseDown, false);
+        canvas.addEventListener('pointermove', handleMouseMove, false);
+        canvas.addEventListener('pointerup', handleMouseUp, false);
       }
     }
   }, [image]);

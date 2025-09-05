@@ -12,7 +12,6 @@ const App = () => {
         height={380}
         onComplete={() => alert('Completed!')}
         brushSize={{ width: 100, height: 100 }}
-        offset={{ x: 0, y: -100 }}
       >
         <img src={Content} />
       </ScratchCard>

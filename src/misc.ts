@@ -14,9 +14,10 @@ export const drawImage = (
   ctx.drawImage(image, 0, 0, width, height);
 };
 
-export const getMouse = (event: MouseEvent | TouchEvent, canvas: HTMLCanvasElement) => {
+export const getMouse = (event: PointerEvent, canvas: HTMLCanvasElement) => {
   const result = { x: 0, y: 0 };
   const offset = { x: 0, y: 0 };
+  console.log(event);
 
   if (canvas.offsetParent !== undefined) {
     if (canvas.offsetParent instanceof HTMLElement) {
@@ -27,13 +28,8 @@ export const getMouse = (event: MouseEvent | TouchEvent, canvas: HTMLCanvasEleme
     }
   }
 
-  if (event instanceof TouchEvent) {
-    result.x = event.touches[0].clientX - offset.x;
-    result.y = event.touches[0].clientY - offset.y;
-  } else {
-    result.x = event.pageX - offset.x;
-    result.y = event.pageY - offset.y;
-  }
+  result.x = event.clientX - offset.x;
+  result.y = event.clientY - offset.y;
 
   return result;
 };
